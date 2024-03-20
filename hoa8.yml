@@ -1,0 +1,21 @@
+---
+-  hosts: all
+   become_user: root
+   become: yes
+
+   tasks:
+     - name: Fetch PCAP file from the manage node
+       fetch:
+         src: /home/qabrevilla/Documents/HOA8.1/enp0s3.pcap
+         dest: /home/qabrevilla/Documents/HOA8.1
+         flat: yes
+
+-  hosts: localhost
+   connection: local
+   gather_facts: false
+   tasks:
+
+     -  name: Extract executable from PCAP
+        command: "tcpflow -r /home/qabrevilla/Documents/HOA8.1/enp0s3.pcap -o /home/qabrevilla/Documents/HOA8.1"
+        args:
+          creates: /home/qabrevilla/Documents/HOA8.1/enp0s3.exe
