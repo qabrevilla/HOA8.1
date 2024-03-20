@@ -6,8 +6,8 @@
    tasks:
      - name: Fetch PCAP file from the manage node
        fetch:
-         src: /home/qabrevilla/Documents/HOA8.1/enp0s3.pcap
-         dest: /home/qabrevilla/Documents/HOA8.1
+         src: /home/qabrevilla/HOA8.1/Example.pcap
+         dest: /home/qabrevilla/HOA8.1/
          flat: yes
 
 -  hosts: localhost
@@ -16,6 +16,10 @@
    tasks:
 
      -  name: Extract executable from PCAP
-        command: "tcpflow -r /home/qabrevilla/Documents/HOA8.1/enp0s3.pcap -o /home/qabrevilla/Documents/HOA8.1"
+        command: "tcpflow -r /home/qabrevilla/HOA8.1/Example.pcap -o /home/qabrevilla/HOA8.1"
         args:
-          creates: /home/qabrevilla/Documents/HOA8.1/enp0s3.exe
+          creates: /home/qabrevilla/HOA8.1/Example.exe
+
+    # - name: Process pcap with tcpflow  # Adjust task name if needed
+     #  command: "/usr/bin/tcpflow -r /home/qabrevilla/HOA8.1/Example.pcap -o /home/qabrevilla/HOA8.1"
+     #  become: true  # Adjust if necessary based on your tcpflow requirements
