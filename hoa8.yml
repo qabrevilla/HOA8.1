@@ -20,6 +20,3 @@
         args:
           creates: /home/qabrevilla/HOA8.1/Example.exe
 
-    # - name: Process pcap with tcpflow  # Adjust task name if needed
-     #  command: "/usr/bin/tcpflow -r /home/qabrevilla/HOA8.1/Example.pcap -o /home/qabrevilla/HOA8.1"
-     #  become: true  # Adjust if necessary based on your tcpflow requirements
