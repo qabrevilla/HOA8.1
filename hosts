@@ -3,4 +3,3 @@
 
 [localhost]
 192.168.56.117 ansible_connection=ssh
-
